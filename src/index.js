@@ -4,7 +4,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 // import css assets
-import "./assets/css/";
+import "./assets/scss/index.scss";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
