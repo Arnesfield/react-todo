@@ -1,13 +1,11 @@
 import React from "react";
-import TodoList from "../components/TodoList";
-import TodoInput from "../components/TodoInput";
+import Todo from "../components/Todo";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <TodoInput />
-        <TodoList />
+        <Todo />
       </div>
     );
   }
