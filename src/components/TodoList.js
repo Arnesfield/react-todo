@@ -9,9 +9,11 @@ class TodoList extends React.Component {
   }
 
   render() {
+    const { completedStyle } = this.state;
+
     // map thru todo list to do this
     const listItemsEl = this.props.list.map(t => (
-      <li style={t.completed ? this.state.completedStyle : null}>{t.title}</li>
+      <li style={t.completed ? completedStyle : null}>{t.title}</li>
     ));
 
     return <div>{listItemsEl}</div>;

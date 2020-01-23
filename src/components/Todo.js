@@ -12,12 +12,21 @@ class Todo extends React.Component {
         { title: "Give up because it's hard", completed: true }
       ]
     };
+
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  // event also as 2nd arg, but you won't use it anyway
+  addTodo(todo) {
+    this.setState({
+      list: [...this.state.list, todo]
+    });
   }
 
   render() {
     return (
       <div>
-        <TodoInput />
+        <TodoInput addTodo={this.addTodo} />
         <TodoList list={this.state.list} />
       </div>
     );
