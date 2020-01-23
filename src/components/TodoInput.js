@@ -8,6 +8,7 @@ class TodoInput extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.onAddTodoClick = this.onAddTodoClick.bind(this);
   }
 
@@ -15,12 +16,10 @@ class TodoInput extends React.Component {
     const { title } = this.state.todo;
 
     return (
-      <div>
-        <input type="text" onChange={this.onChange} value={title} />
-        <button type="button" onClick={this.onAddTodoClick}>
-          Add todo
-        </button>
-      </div>
+      <form onSubmit={this.onSubmit}>
+        <input required type="text" value={title} onChange={this.onChange} />
+        <button>Add todo</button>
+      </form>
     );
   }
 
@@ -35,8 +34,14 @@ class TodoInput extends React.Component {
     });
   }
 
+  onSubmit(event) {
+    event.preventDefault();
+    this.onAddTodoClick(event);
+  }
+
   onAddTodoClick(event) {
     //! no check if addTodo is a function
+    // TODO: duplicate todo titles are not checked
     this.props.addTodo(this.state.todo, event);
     // then, clear the text
     this.setState({
