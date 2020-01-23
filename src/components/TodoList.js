@@ -1,22 +1,11 @@
 import React from "react";
+import TodoItem from "./TodoItem";
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      completedStyle: { "text-decoration": "line-through" }
-    };
-  }
-
   render() {
-    const { completedStyle } = this.state;
-
     // map thru todo list to do this
-    const listItemsEl = this.props.list.map(t => (
-      <li style={t.completed ? completedStyle : null}>{t.title}</li>
-    ));
-
-    return <div>{listItemsEl}</div>;
+    const listItemsEl = this.props.list.map(item => <TodoItem {...item} />);
+    return <ul className="Todo">{listItemsEl}</ul>;
   }
 }
 
